@@ -1,0 +1,15 @@
+extends: [[spectral:oas, all]]
+documentationUrl: https://quobix.com/vacuum/rulesets/custom-rulesets
+rules:
+  check-url-format:
+    description: Check the url format of the spec does not match 'petstore.swagger.io'.
+    severity: error
+    recommended: true
+    formats: [oas2, oas3]
+    given: $.servers[*].url
+    then:
+#      field: url
+      function: pattern
+      functionOptions:
+        match: "petstore\\.swagger\\.io"
+    howToFix: Make sure the url contains 'petstore.swagger.io'
