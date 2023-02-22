@@ -29,7 +29,7 @@ properties([
 ])
 
 pipeline {
-  agent { label 'master_master' }
+  agent any
   environment {
         GCLOUD_DIR = "$JENKINS_HOME/google-cloud-sdk/bin"
         VACUUM_DIR = '/usr/local/bin/vacuum'
